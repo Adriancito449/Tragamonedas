@@ -1,18 +1,7 @@
 package Proyecto_tragamonedas;
 
 import java.io.*;
-
-class Nodo {
-
-    int Indice;
-    Nodo Siguiente = null;
-    Nodo Anterior = null;
-    Boolean Primero = false;
-    Boolean Ultimo = false;
-
-    String Rotores[];
-
-}
+import java.util.Scanner;
 
 class Listas {
 
@@ -26,6 +15,7 @@ class Listas {
     Boolean Verprimero(Nodo nodo, String LRotores[]) {
 
         Boolean pave;
+        
         if (nodo == null) {
             nodo = new Nodo();
             nodo.Rotores = LRotores;
@@ -35,7 +25,6 @@ class Listas {
         } else {
             pave = false;
         }
-
         return pave;
     }
 
@@ -64,7 +53,7 @@ class Listas {
 
     void pasarDato(){
 
-        
+
     }
 
 
@@ -81,8 +70,9 @@ public class Tragamonedas {
 
     public static void main(String[] args) throws IOException 
     {
+        Motor inicio= new Motor();
         
-        Fichero kkoo = new Fichero();
+        inicio.start();
         
-        kkoo.crear("Oki.in", "Hola bb");
     }
+}
