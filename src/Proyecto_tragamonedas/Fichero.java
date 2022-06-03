@@ -15,6 +15,7 @@ public class Fichero {
     
     PrintWriter pf;
     FileReader fr;
+    Nodo pri;
     
     void crear(String pNombre,String pDatos) throws IOException
     {
@@ -25,7 +26,7 @@ public class Fichero {
         
     }
     
-    void leer(String pNombre) throws IOException
+    void leer(String pNombre,Listas plis) throws IOException
     {
         fr=new FileReader(pNombre);
         BufferedReader br=new BufferedReader(fr);
@@ -33,8 +34,11 @@ public class Fichero {
         while ((linea=br.readLine())!=null)
         {
             String[] datos = linea.split("//");
+
             
-            //lis.crear(nombre, cedula, materia, nota);
+
+            plis.Crear(plis.nodo,datos);
+            //lis.crear(nombRotoresre, cedula, materia, nota);
         }
     }
     

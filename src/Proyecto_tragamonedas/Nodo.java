@@ -10,7 +10,7 @@ public class Nodo {
     Nodo Anterior = null;
     Boolean Primero = false;
     Boolean Ultimo = false;
-
     String Rotores[];
+    
 
 }

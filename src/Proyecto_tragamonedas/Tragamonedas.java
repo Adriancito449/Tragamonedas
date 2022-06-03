@@ -1,7 +1,7 @@
 package Proyecto_tragamonedas;
 
 import java.io.*;
-import java.util.Scanner;
+import java.util.Arrays;
 
 class Listas {
 
@@ -12,10 +12,10 @@ class Listas {
         nodo = null;
     }
 
-    Boolean Verprimero(Nodo nodo, String LRotores[]) {
+    Boolean Verprimero(Nodo lnodo,String LRotores[]) {
 
         Boolean pave;
-        
+
         if (nodo == null) {
             nodo = new Nodo();
             nodo.Rotores = LRotores;
@@ -28,10 +28,9 @@ class Listas {
         return pave;
     }
 
-    void Crear(Nodo nodo, String LRotores[]) {
-
-        if (Verprimero(nodo, LRotores) == false) {
-            aux = nodo;
+    void Crear(Nodo lnodo,String LRotores[]) {
+        aux = nodo;
+        if (Verprimero(lnodo,LRotores) == false) {
             while (aux.Siguiente != null) {
                 aux = aux.Siguiente;
             }
@@ -51,28 +50,31 @@ class Listas {
 
     }
 
-    void pasarDato(){
+    void Mostrar(Nodo lnodo) {
 
+        aux = lnodo;
+        String a[];
+        
+        while (aux.Siguiente != null) {
+            a = aux.Rotores;
+            System.out.println("  "+Arrays.toString(a));
+            aux = aux.Siguiente;
+        }
 
     }
-
-
-
-
-
-
-
-
 
 }
 
 public class Tragamonedas {
 
-    public static void main(String[] args) throws IOException 
-    {
-        Motor inicio= new Motor();
+    public static void main(String[] args) throws IOException {
+        Fichero jj = new Fichero();
+        Listas lis = new Listas();
         
-        inicio.start();
         
+        jj.leer("Rotores.txt", lis);
+
+        lis.Mostrar(lis.nodo);
+
     }
 }
