@@ -4,11 +4,11 @@
  */
 package Proyecto_tragamonedas;
 
-/**
- *
- * @author yulie
- */
-public class jugador {
-    static int cantTotalFichas;
-    
+public class Jugador {
+
+    int cantFichasJugador;
+    int cantAciertos;
+    int cantApuesta;
+    int resultadoApuesta;
+
 }

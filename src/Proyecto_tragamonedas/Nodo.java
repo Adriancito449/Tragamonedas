@@ -5,12 +5,12 @@
 package Proyecto_tragamonedas;
 public class Nodo {
 
-    int Indice;
     Nodo Siguiente = null;
     Nodo Anterior = null;
     Boolean Primero = false;
     Boolean Ultimo = false;
     String Rotores[];
+    
     
 
 }

@@ -1,12 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Proyecto_tragamonedas;
 
 import java.io.*;
-import java.util.Scanner;
+
 
 /**
  *
@@ -14,27 +10,20 @@ import java.util.Scanner;
  */
 
 
+
+
+
 public class coincidencias {
     PrintWriter pf;
     FileReader fr;
+    int cantTotalFichas;
+    int cantFichasJugador;
+    int cantAciertos;
+    int cantApuesta;
+    int resultadoApuesta;
 
-    void cargarjugador() throws IOException {
-        String texto = "";
-        String direccion = "C:\\Users\\Usuario\\Documents\\NetBeansProjects\\tragamonedas\\src\\tragamonedas\\jugador.txt";
-        System.out.println(direccion);
+    int calcularAciertosGanancias(String tipoJugada) {
 
-        fr = new FileReader(direccion);
-        BufferedReader br = new BufferedReader(fr);
-        String linea;
-
-        while ((linea = br.readLine()) != null) {
-            String[] datos = linea.split("//");
-        }
-    }
-
-    public  int calcularAciertosGanancias(String tipoJugada) {
-
-        Scanner in = new Scanner(System.in);
         int[][] valores = new int[3][3];
 
         // PRIMERA FILA
@@ -50,7 +39,6 @@ public class coincidencias {
         valores[2][1] = 1;
         valores[2][2] = 2;
 
-        int cantFichasJugador = 20, cantAciertos = 0, cantApuesta, resultadoApuesta = 0;
 
         // JUGADA A, LINEA MEDIA HORIZONTAL
         if (tipoJugada.equals("A") || tipoJugada.equals("a")) {
@@ -75,8 +63,8 @@ public class coincidencias {
                 } else {
                     resultadoApuesta = 5 * cantApuesta * 2 ^ cantAciertos - 1;
                     System.out.println("Haz ganado cant Fichas:" + resultadoApuesta);
-                    jugador.cantTotalFichas = cantFichasJugador + resultadoApuesta;
-                    System.out.println("Tu fichas actuales son: " + jugador.cantTotalFichas);
+                    cantTotalFichas = cantFichasJugador + resultadoApuesta;
+                    System.out.println("Tu fichas actuales son: " + cantTotalFichas);
                 }
 
             }
@@ -113,8 +101,8 @@ public class coincidencias {
                     } else {
                         resultadoApuesta = 5 * cantApuesta * 2 ^ cantAciertos - 1;
                         System.out.println("Haz ganado cant Fichas:" + resultadoApuesta);
-                        jugador.cantTotalFichas = cantFichasJugador + resultadoApuesta;
-                        System.out.println("Tu fichas actuales son: " + jugador.cantTotalFichas);
+                        cantTotalFichas = cantFichasJugador + resultadoApuesta;
+                        System.out.println("Tu fichas actuales son: " + cantTotalFichas);
                     }
 
                 }
@@ -159,8 +147,8 @@ public class coincidencias {
                         } else {
                             resultadoApuesta = 5 * cantApuesta * 2 ^ cantAciertos - 1;
                             System.out.println("Haz ganado cant Fichas:" + resultadoApuesta);
-                            jugador.cantTotalFichas = cantFichasJugador + resultadoApuesta;
-                            System.out.println("Tu fichas actuales son: " + jugador.cantTotalFichas);
+                            cantTotalFichas = cantFichasJugador + resultadoApuesta;
+                            System.out.println("Tu fichas actuales son: " + cantTotalFichas);
                         }
 
                     }
@@ -221,8 +209,8 @@ public class coincidencias {
                             } else {
                                 resultadoApuesta = 5 * cantApuesta * 2 ^ cantAciertos - 1;
                                 System.out.println("Haz ganado cant Fichas:" + resultadoApuesta);
-                                jugador.cantTotalFichas = cantFichasJugador + resultadoApuesta;
-                                System.out.println("Tu fichas actuales son: " + jugador.cantTotalFichas);
+                                cantTotalFichas = cantFichasJugador + resultadoApuesta;
+                                System.out.println("Tu fichas actuales son: " + cantTotalFichas);
                             }
 
                         }
@@ -230,7 +218,18 @@ public class coincidencias {
                 }
             }
         }
-        return jugador.cantTotalFichas;
+        return cantTotalFichas;
+    }
+
+    public coincidencias() {
+    }
+
+    public coincidencias(int cantTotalFichas, int cantFichasJugador, int cantAciertos, int cantApuesta, int resultadoApuesta) {
+        this.cantTotalFichas = cantTotalFichas;
+        this.cantFichasJugador = cantFichasJugador;
+        this.cantAciertos = cantAciertos;
+        this.cantApuesta = cantApuesta;
+        this.resultadoApuesta = resultadoApuesta;
     }
     
 }

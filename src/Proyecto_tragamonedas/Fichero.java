@@ -38,7 +38,6 @@ public class Fichero {
             
 
             plis.Crear(plis.nodo,datos);
-            //lis.crear(nombRotoresre, cedula, materia, nota);
         }
     }
     
